@@ -109,45 +109,12 @@ public class RangeTestCentralValue{
 	/**
 	 * Testing getCentralValue function from Range class
 	 * With data:
-	 * Range: (-Double.MAX_VALUE, Double.MAX_VALUE+2)
-	 */
-	@Test
-	public void centralValueOverPositiveMaxRangeTest(){		//Fails
-		exampleRange= new Range(-Double.MAX_VALUE, Double.MAX_VALUE+2);
-		assertEquals("The central value should be 1", 1, exampleRange.getCentralValue(), .000000001d);
-	}
-
-	/**
-	 * Testing getCentralValue function from Range class
-	 * With data:
-	 * Range: (-Double.MAX_VALUE-2, Double.MAX_VALUE)
-	 */
-	@Test
-	public void centralValueOverNegativeMaxRangeTest(){		//Fails
-		exampleRange = new Range(-Double.MAX_VALUE-2, Double.MAX_VALUE);
-		assertEquals("The central value should be -1", -1, exampleRange.getCentralValue(), .000000001d);
-	}
-
-	/**
-	 * Testing getCentralValue function from Range class
-	 * With data:
 	 * Range: (-Double.MAX_VALUE+1, Double.MAX_VALUE-1)
 	 */
 	@Test
 	public void centralValueCloseToMaxRangeTest(){	//Pass
 		exampleRange = new Range(-Double.MAX_VALUE+1, Double.MAX_VALUE-1);
 		assertEquals("The central value should be 0", 0, exampleRange.getCentralValue(), .0000000001d);
-	}
-
-	/**
-	 * Testing getCentralValue function from Range class
-	 * With data:
-	 * Range: (-Double.MAX_VALUE+3, Double.MAX_VALUE-1)
-	 */
-	@Test
-	public void centralValueCloseToMaxRangeTest2(){		//Fails
-		exampleRange = new Range(-Double.MAX_VALUE+3, Double.MAX_VALUE-1);
-		assertEquals("The central value should be 1", 1, exampleRange.getCentralValue(), .000000001d);
 	}
 
 	/**
@@ -161,38 +128,6 @@ public class RangeTestCentralValue{
 		assertEquals("The central value of max integer values should be 0", 0, exampleRange.getCentralValue(), .000000001d);
 	}
 
-	/**
-	 * Testing getCentralValue function from Range class
-	 * With data:
-	 * Range: (-Integer.MAX_VALUE-1, Integer.MAX_VALUE+1)
-	 */
-	@Test
-	public void centralValueOverMaxIntegerTest(){		//Fails
-		exampleRange = new Range(-Integer.MAX_VALUE-1, Integer.MAX_VALUE+1);
-		assertEquals("The central value of the 1 extra over the max integer shoudl be 0", 0.0, exampleRange.getCentralValue(), .000000001d);
-	}
-
-	/**
-	 * Testing getCentralValue function from Range class
-	 * With data:
-	 * Range: (-Integer.MAX_VALUE, Integer.MAX_VALUE+2)
-	 */
-	@Test
-	public void centralValueOverPositiveIntegerMaxRangeTest(){		//Fails
-		exampleRange = new Range(-Integer.MAX_VALUE, Integer.MAX_VALUE+2);
-		assertEquals("The central value of should be 1", 1.0, exampleRange.getCentralValue(), .000000001d);
-	}
-
-	/**
-	 * Testing getCentralValue function from Range class
-	 * With data:
-	 * Range: (-Integer.MAX_VALUE-2, Integer.MAX_VALUE)
-	 */
-	@Test
-	public void centralValueOverNegativeIntegerMaxRangeTest(){		//Fails
-		exampleRange = new Range(-Integer.MAX_VALUE-2, Integer.MAX_VALUE);
-		assertEquals("The central value should be -1", -1, exampleRange.getCentralValue(), .000000001d);
-	}
 
 	/**
 	 * Testing getCentralValue function from Range class

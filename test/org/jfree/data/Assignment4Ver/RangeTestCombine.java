@@ -135,8 +135,7 @@ public class RangeTestCombine{
 	@Test
 	public void combineSecondNull(){		//Pass
 		exampleRange = new Range(0,1);
-		Range result = Range.combine(exampleRange, null);
-		assertEquals("result should be null", null, result);
+		assertTrue(Range.combine(exampleRange, null).equals(new Range(0,1)));
 	}
 
 	@After
