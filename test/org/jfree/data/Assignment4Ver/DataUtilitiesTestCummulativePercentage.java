@@ -218,7 +218,7 @@ public class DataUtilitiesTestCummulativePercentage{
 				atLeast(1).of(data).getKey(0);
 				will(returnValue(0));
 				atLeast(1).of(data).getValue(0);
-				will(returnValue(-3));
+				will(returnValue(2));//fixed -3 -> 2, legacy bug
 				//simulates item # 2
 				atLeast(1).of(data).getKey(1);
 				will(returnValue(1));
