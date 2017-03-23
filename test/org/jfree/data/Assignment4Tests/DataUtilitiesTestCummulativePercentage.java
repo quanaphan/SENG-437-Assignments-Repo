@@ -1,4 +1,4 @@
-package org.jfree.data.Assignment3TestsFilteredForAllGreens;
+package org.jfree.data.Assignment4Tests;
 
 import static org.junit.Assert.*;
 
@@ -197,6 +197,50 @@ public class DataUtilitiesTestCummulativePercentage{
 		assertArrayEquals(expecteds, actuals);
 	}
 
+
+	/**
+	 * calling getCummulativePercentages() function from DataUtility using mocked KeyedValues.
+	 * Mocking a normal set of keys and values as followed:
+	 * key    value
+	 * 0      2
+	 * 1      null
+	 * 2      2
+	 */
+	@Test
+	public void getCummulativePercentagesWithANullIndexValue() {	//Fails
+		//setup
+		KeyedValues data = mockingContext.mock(KeyedValues.class);
+		mockingContext.checking(new Expectations() {
+			{
+				atLeast(1).of(data).getItemCount();
+				will(returnValue(3));
+				//simulates item # 1
+				atLeast(1).of(data).getKey(0);
+				will(returnValue(0));
+				atLeast(1).of(data).getValue(0);
+				will(returnValue(-3));
+				//simulates item # 2
+				atLeast(1).of(data).getKey(1);
+				will(returnValue(1));
+				atLeast(1).of(data).getValue(1);
+				will(returnValue(null));
+				//simulates item # 3
+				atLeast(1).of(data).getKey(2);
+				will(returnValue(2));
+				atLeast(1).of(data).getValue(2);
+				will(returnValue(2));
+			}
+		});
+		KeyedValues result = DataUtilities.getCumulativePercentages(data);
+		mockingContext.assertIsSatisfied();
+		Number[] expecteds = {0.5,0.5,1.0};
+		Number[] actuals = {0.0,0.0,0.0};
+		if(result.getItemCount() != 3) fail("Wrong amount of key returned");
+		for(int index = 0; index < result.getItemCount(); index++){
+			actuals[index] = result.getValue(index);
+		}
+		assertArrayEquals(expecteds, actuals);
+	}
 
 
 	/**

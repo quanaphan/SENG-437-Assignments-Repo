@@ -1,4 +1,4 @@
-package org.jfree.data.Assignment3TestsFilteredForAllGreens;
+package org.jfree.data.Assignment4Tests;
 
 import static org.junit.Assert.*;
 
@@ -90,6 +90,19 @@ public class RangeTestEqual{
 		assertEquals("The ranges should be equal",true,areSame);
 	}
 
+	/**
+	 * Testing equal function from Range class
+	 * With data:
+	 * Range 1: (-Double.MAX_VALUE-1, Double.MAX_VALUE+1)
+	 * Range 2: (-Double.MAX_VALUE-1, Double.MAX_VALUE+1)
+	 */
+	@Test
+	public void overMaxRangeNotEqualTest() {	 //Fail
+		Range exampleRange1 = new Range(-Double.MAX_VALUE-1,Double.MAX_VALUE+1);
+		Range exampleRange2 = new Range(-Double.MAX_VALUE-2,Double.MAX_VALUE+2);
+		boolean areDifferent = !exampleRange1.equals(exampleRange2);
+		assertEquals("The ranges should be equal",true,areDifferent);
+	}
 
 	@After
 	public void tearDown() throws Exception{}
