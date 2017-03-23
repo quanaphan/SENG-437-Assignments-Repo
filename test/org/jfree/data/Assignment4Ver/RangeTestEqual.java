@@ -103,6 +103,7 @@ public class RangeTestEqual{
 		boolean areDifferent = !exampleRange1.equals(exampleRange2);
 		assertEquals("The ranges should be equal",false,areDifferent);
 	}
+	
 
 	@After
 	public void tearDown() throws Exception{}
