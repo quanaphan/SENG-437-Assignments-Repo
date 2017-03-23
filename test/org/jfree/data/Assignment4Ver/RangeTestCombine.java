@@ -1,4 +1,4 @@
-package org.jfree.data.test;
+package org.jfree.data.Assignment4Ver;
 
 import static org.junit.Assert.*;
 
@@ -126,7 +126,18 @@ public class RangeTestCombine{
 		assertTrue(Range.combine(null, exampleRange).equals(new Range(0,1)));
 	}
 
-
+	/**
+	 * Testing combine function from Range class
+	 * With data:
+	 * Range 1: (0, 1)
+	 * Range 2: null
+	 */
+	@Test
+	public void combineSecondNull(){		//Pass
+		exampleRange = new Range(0,1);
+		Range result = Range.combine(exampleRange, null);
+		assertEquals("result should be null", null, result);
+	}
 
 	@After
 	public void tearDown() throws Exception{}

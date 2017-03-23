@@ -1,4 +1,4 @@
-package org.jfree.data.Assignment4Tests;
+package org.jfree.data.Assignment4Ver;
 
 import static org.junit.Assert.*;
 
