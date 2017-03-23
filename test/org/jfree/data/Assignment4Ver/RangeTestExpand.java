@@ -38,8 +38,7 @@ public class RangeTestExpand{
 	 */
 	@Test
 	public void expandZeroTest(){		//Pass
-		exampleRange = new Range(-1, 1);
-		Range.expand(exampleRange, 0, 0);
+		exampleRange = Range.expand(new Range(-1, 1), 0, 0);
 		Range testRange = new Range(-1, 1);
 		assertTrue("Range should be (-1,1)", testRange.equals(exampleRange));
 	}
@@ -52,10 +51,9 @@ public class RangeTestExpand{
 	 */
 	@Test
 	public void expandUpperBoundTest(){		//Pass
-		exampleRange = new Range(0, 2);
-		Range.expand(exampleRange, 0, 0.5);
+		exampleRange = Range.expand(new Range(0, 2), 0, 0.5);
 		Range testRange = new Range(0, 3);
-		assertTrue("Range should be (0,3)", testRange.equals(exampleRange));
+		assertEquals("Range should be (0,3)", true, testRange.equals(exampleRange));
 	}
 
 	/**
@@ -66,8 +64,7 @@ public class RangeTestExpand{
 	 */
 	@Test
 	public void expandLowerBoundTest(){		//Fails
-		exampleRange = new Range(0, 2);
-		Range.expand(exampleRange, 0.5, 0);
+		exampleRange = Range.expand(new Range(0, 2), 0.5, 0);
 		Range testRange = new Range(-1, 2);
 		assertTrue("Range should be (-1,2)", testRange.equals(exampleRange));
 	}
@@ -80,10 +77,9 @@ public class RangeTestExpand{
 	 */
 	@Test
 	public void expandBothBoundsTest(){		//Fails
-		exampleRange = new Range(2, 6);
-		Range.expand(exampleRange, 0.25, 0.5);
+		exampleRange = Range.expand(new Range(2, 6), 0.25, 0.5);
 		Range testRange = new Range(1, 8);
-		assertTrue("Range should be (1,8)", testRange.equals(exampleRange));
+		assertTrue("Range should be (1,8)", exampleRange.equals(testRange));
 	}
 
 	/**
@@ -94,8 +90,7 @@ public class RangeTestExpand{
 	 */
 	@Test
 	public void expandUpperBoundNegativeTest(){		//Passed
-		exampleRange = new Range(0, 2);
-		Range.expand(exampleRange, 0, -0.5);
+		exampleRange = Range.expand(new Range(0, 2), 0, -0.5);
 		Range testRange = new Range(0, 1);
 		assertTrue("Range should be (0,1)", testRange.equals(exampleRange));
 	}
@@ -108,8 +103,7 @@ public class RangeTestExpand{
 	 */
 	@Test
 	public void expandLowerBoundNegativeTest(){		//Fails
-		exampleRange = new Range(0, 2);
-		Range.expand(exampleRange, -0.5, 0);
+		exampleRange = Range.expand(new Range(0, 2), -0.5, 0);
 		Range testRange = new Range(1, 2);
 		assertTrue("Range should be (1,2)", testRange.equals(exampleRange));
 	}
@@ -122,8 +116,7 @@ public class RangeTestExpand{
 	 */
 	@Test
 	public void expandBothBoundsNegativeTest(){		//Fails
-		exampleRange = new Range(0, 4);
-		Range.expand(exampleRange, -0.25, -0.25);
+		exampleRange = Range.expand(new Range(0, 4), -0.25, -0.25);
 		Range testRange = new Range(1, 3);
 		assertTrue("Range should be (1,3)", testRange.equals(exampleRange));
 	}

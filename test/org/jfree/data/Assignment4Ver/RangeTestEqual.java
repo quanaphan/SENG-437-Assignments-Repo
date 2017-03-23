@@ -101,7 +101,7 @@ public class RangeTestEqual{
 		Range exampleRange1 = new Range(-Double.MAX_VALUE-1,Double.MAX_VALUE+1);
 		Range exampleRange2 = new Range(-Double.MAX_VALUE-2,Double.MAX_VALUE+2);
 		boolean areDifferent = !exampleRange1.equals(exampleRange2);
-		assertEquals("The ranges should be equal",true,areDifferent);
+		assertEquals("The ranges should be equal",false,areDifferent);
 	}
 
 	@After
